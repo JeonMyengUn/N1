@@ -1,0 +1,38 @@
+<%=render 'layouts/navbar'%>
+
+<br />
+<h1>합승 모집 목록</h1>
+
+<%=link_to 'New Articles', new_article_path, :class => "btn btn-primary", role:"button"%>
+<%=link_to 'Home', root_path, :class => "btn btn-warning", role: "button"%>
+
+<hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>출발지</th>
+                <th>목적지</th>
+                <th>방장</th>
+                <th colspan="5">합승자 인원</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <% @articles.each do |article|%>
+                <tr>
+                    <td><%= link_to article.starting_point, article %></td>
+                    <td><%= link_to article.destination, article %></td>
+                    <td><%= link_to article.user.profile.name, article %></td>
+                    <td><%= link_to article.likes.count, article %></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+
+
+<div class="d-flex justify-content-center">
+    <%=paginate @articles, theme: 'twitter-bootstrap-4'%>
+</div>
+
+<%=render 'layouts/footer'%>

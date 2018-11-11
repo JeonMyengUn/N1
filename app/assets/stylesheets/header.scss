@@ -1,0 +1,33 @@
+@media (min-width: 325px) {
+
+        .view > img{
+        height: 325px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (min-width: 375px) {
+
+        .view > img{
+        height: 375px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (min-width: 425px) {
+    .view > img{
+        height: 425px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .view > img{
+        height: 768px;
+        display: block;
+        width: 100%;
+    }    
+}

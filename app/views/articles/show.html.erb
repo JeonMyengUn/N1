@@ -1,0 +1,56 @@
+
+<%=render 'layouts/navbar'%>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+          <%=@article.starting_point%>  
+        </div>
+        <div class="col-2">
+           <%=fa_icon('arrow-right 1x', style: 'color: Green')%>
+        </div>
+        <div class="col-5">
+            <%=@article.destination%>
+        </div>
+    </div>
+</div> 
+
+<strong><%=@article.user.profile.name%></strong>
+<div>
+    <%if @article.user == current_user%>
+    <%=link_to fa_icon('edit 2x'), edit_article_path(@article)%> 
+    <%=link_to fa_icon('trash 2x'), article_path(@article), method: :delete, data: {confirm: "삭제하시겠습니까?"}%>
+    
+    <%end%>
+</div>
+
+<%if @article.l_users.include?(current_user) %>
+    <%=link_to(fa_icon('thumbs-up', style: 'color: blue'), like_article_path, method: :POST)%>
+<%else%>
+    <%=link_to(fa_icon('thumbs-up', style: 'color: red'), like_article_path, method: :post)%>
+<%end%>
+
+
+<!--Like string-->
+<strong>
+    <%if @article.likes.count > 0%>
+        <%if @article.likes.count > 2%>
+            <% @article.l_users.sample(2).each do |user|%>
+                <%= user.profile.name%>님, 
+            <%end%>
+            외 <%= @article.likes.count - 2%>명이 좋아합니다.
+        <%else%>
+            <% @article.l_users.each do |user|%>
+                <%= user.profile.name%>님,
+            <%end%>
+            이 좋아합니다.
+        <%end%>
+    <%end%>
+</strong>
+
+<hr />
+<%=render 'comments/form', commentable: @article%>
+<hr>
+<%=render 'comments/index', commentable: @article%>

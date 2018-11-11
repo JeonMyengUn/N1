@@ -1,0 +1,21 @@
+<h1><%=current_user.email%>의 프로필</h1>
+
+<hr>
+
+<p><%= @profile.name %></p>
+<p><%= @profile.address %></p>
+<p><%= @profile.mobile %></p>
+<p><%= @profile.birth %></p>
+
+<hr class="my-1">
+
+
+    <div>
+        <strong>
+            <a href="https://together-shared.herokuapp.com/">N/1 Application</a>
+            make
+            <a href="https://kookje.ac.kr">Kookje Univ</a>
+        </strong>
+        <%=link_to fa_icon('edit 2x'), edit_profile_path, :class => "float-right btn btn-secondary", :type => "button"%>
+        <%=link_to fa_icon('home 2x'), root_path, :class => "float-right btn btn-secondary", :type => "button"%>
+    </div>

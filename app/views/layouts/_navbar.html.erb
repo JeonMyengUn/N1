@@ -1,0 +1,77 @@
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light white-color navbar-toggler">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" style="height:50px; width:40px"href="/"><%=image_tag '0221123.png', :class => 'logo' %></a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">홈
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <%=link_to '서비스', kategorie_servise_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%=link_to '파트너',kategorie_partner_path,:class => "nav-link"%>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <%=link_to '고객센터',kategorie_servise_center_path, :class => "nav-link dropdown-toggle", :id => "navbarDropdownMenuLink", "aria-expanded" => false, 
+                "aria-haspopup" => true, 'data-toggle' => 'dropdown'%>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">공지사항</a>
+                    <a class="dropdown-item" href="#">FAQ</a>
+                    <a class="dropdown-item" href="#">이벤트</a>
+                </div>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <%=link_to '고객센터',kategorie_introductionn_path, :class => "nav-link dropdown-toggle", :id => "navbarDropdownMenuLink", "aria-expanded" => false, 
+                "aria-haspopup" => true, 'data-toggle' => 'dropdown'%>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">회사 소개</a>
+                    <a class="dropdown-item" href="#">N/1</a>
+                </div>
+            </li>
+
+        </ul>
+        <!-- Links -->
+
+        <%if user_signed_in?%>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=current_user.email%></a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <%=link_to "합승목록", articles_path, :class => "dropdown-item"%>
+                    <%=link_to "합승신청", new_article_path, :class => "dropdown-item"%>
+                    <%= link_to "Profile", my_profile_path ,:class => "dropdown-item"%>
+                    <div class="dropdown-divider"></div>
+                    <%=link_to "로그아웃", destroy_user_session_path, method: :delete, :class => "dropdown-item"%>
+                </div>
+            </li>
+        </ul>
+        <%else%>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <%=link_to '로그인', new_user_session_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%=link_to '회원가입', new_user_registration_path, :class => "nav-link"%>
+            </li>
+        </ul>
+        <%end%>
+    </div>
+    <!-- Collapsible content -->
+</nav>

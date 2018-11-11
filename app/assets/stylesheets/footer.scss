@@ -1,0 +1,45 @@
+
+
+.footer_bar{
+    background-color: orange;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+b {
+   text-align: center; 
+   display: block;
+   position: relative;
+}
+
+div.footer_cont {
+    text-align: center;
+    display: relative;
+    
+}
+#kakao_FAQ {
+    border-box: 2px solid rgba(0,0,0,1);
+}
+
+.nav-link {
+    color: #333;
+    border: border-box;
+    :hover {
+        color : brown;
+    }
+}
+
+a.backtotop {
+    display: block;
+    text-align: center;
+    font-family: 'Concert One', cursive;
+    color : orange;
+    background-color : #333;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 1rem;
+}
+a.backtotop:hover {
+    color: orangered;
+    text-decoration: none;
+}
