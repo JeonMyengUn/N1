@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   #article
   resources :articles
   
-  
   # Kategorie Menu Routes
   get 'kategorie/servise'
   get 'kategorie/partner'
