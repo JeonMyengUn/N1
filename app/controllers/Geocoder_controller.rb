@@ -15,5 +15,9 @@ def Geocoder
   end
 
 end
+
+private
+  def Geocoder_params
+  end
 # response.code
 # response.body
