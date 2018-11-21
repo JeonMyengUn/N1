@@ -28,6 +28,6 @@
       <%= f.submit  t('.sign_in'), class: "btn-floating btn-lg purple-gradient" %>
     </div>
   <% end %>
-  
+   <li><%= link_to "with Facebook", user_omniauth_authorize_path(:facebook) %></li>
   <%= render 'devise/shared/links' %>
 </div>

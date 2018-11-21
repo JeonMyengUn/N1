@@ -23,6 +23,7 @@ gem 'kaminari'
 # omniauth gem (Naver)
 gem 'omniauth'
 gem 'omniauth-naver'
+gem 'omniauth-facebook'
 
 # contant view 
 gem 'tinymce-rails'
