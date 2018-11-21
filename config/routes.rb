@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/articles/:id/like',  to: 'likes#like_toggle', as: 'like_article'
 
   # devise
-  devise_for :users
+  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
   
   # root url
   root to: 'home#index'

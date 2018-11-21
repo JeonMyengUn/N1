@@ -20,6 +20,9 @@ gem 'font-awesome-rails'
 # bootstrap kaminari
 gem 'bootstrap4-kaminari-views'
 gem 'kaminari'
+# omniauth gem (Naver)
+gem 'omniauth'
+gem 'omniauth-naver'
 
 # contant view 
 gem 'tinymce-rails'

@@ -27,10 +27,10 @@
             <div id="map" style="width:100%;height:400px;"></div>
  
             <p id="result"></p>
-        
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9625e402170cf86b9c608c303b537774&libraries=services"></script>
+            <%=javascript_include_tag "//dapi.kakao.com/v2/maps/sdk.js?appkey=9625e402170cf86b9c608c303b537774&libraries=services", :type => "text/javascript"%>
             <script type="text/javascript">
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            
             mapOption = { 
                     center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
                     level: 2 // 지도의 확대 레벨 
@@ -49,6 +49,8 @@
             var zoomControl = new daum.maps.ZoomControl();
             map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
             
+            
+            
             // 지도를 클릭한 위치에 표출할 마커입니다
             var marker = new daum.maps.Marker({ 
                 // 지도 중심좌표에 마커를 생성합니다 
@@ -66,6 +68,13 @@
                 
                 // 마커 위치를 클릭한 위치로 옮깁니다
                 marker.setPosition(latlng);
+                
+                var latitude = marker.getPosition().ib;
+                var longitude = marker.getPosition().jb;
+                
+                var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                message = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalConfirmDelete">경로 설정</button>'; // 인포윈도우에 표시될 내용입니다
+                    
             });
             
             // 클릭시 현위치 마커 찍기
@@ -87,6 +96,7 @@
 
                         // 마커와 인포윈도우를 표시합니다
                         marker.setPosition(locPosition);
+                        
                         
                       });
                     
