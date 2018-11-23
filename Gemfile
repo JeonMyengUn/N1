@@ -25,6 +25,7 @@ gem 'omniauth'
 gem 'omniauth-naver'
 gem 'omniauth-facebook'
 
+
 # contant view 
 gem 'tinymce-rails'
 gem 'bundler', '~> 1.16.4'
